@@ -81,7 +81,7 @@ gulp.task('imgResize', function() {
 			height: 50,
 			format: 'png', // изменить расширение
 		})))
-	.pipe(gulp.dest('app/sprites/readyFiles/'));
+	.pipe(gulp.dest('app/img/sprites/readyFiles/'));
 });
 
 //Создание спрайтов и их стилей
@@ -91,7 +91,7 @@ gulp.task('imgResize', function() {
 3). с помощью выбранного формата используется нужный шаблон с даными json для соз
 дания файла css, scss или др.*/
 gulp.task('sprite', gulp.series('imgResize', function(done) {
-	let spriteData = gulp.src('app/sprites/readyFiles/*.+(png||jpeg||jpg)')
+	let spriteData = gulp.src('app/sprites/img/readyFiles/*.+(png||jpeg||jpg)')
 	.pipe(spritesmith({
 		imgName: 'sprite.png',
 		imgPath: '../img/sprites/sprite.png',
