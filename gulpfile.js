@@ -14,7 +14,13 @@ imagemin				= require('gulp-imagemin'),
 imageminPngquant 		= require('imagemin-pngquant'),
 imageminJpegRecompress 	= require('imagemin-jpeg-recompress'),
 del 					= require('del');//удаление файлов или директорий,
-spritesmith				= require('gulp.spritesmith'), // спрайты
+spritesmith				= require('gulp.spritesmith'), // спрайт
+
+svgmin 					= require('gulp-svgmin'), // минификация и изменение имени svg перед сборкой в спрайт
+svgstore 				= require('gulp-svgstore'), // svg спрайт
+
+
+
 
 // сравнение исходных фалов и файлов сборки
 changed					= require('gulp-changed'),
@@ -70,9 +76,9 @@ gulp.task('scripts', () => {
 
 // Подгонка размеров картинок под спрайты
 gulp.task('imgResize', function() {
-	return gulp.src('app/sprites/originalFiles/*.+(png||jpeg||jpg)')
+	return gulp.src('app/img/sprites/originalFiles/*.+(png||jpeg||jpg)')
 	// берем только те файлы, которые отличаються от файлов на выходе
-	.pipe(changed('app/sprites/readyFiles/', { 
+	.pipe(changed('app/img/sprites/readyFiles/', { 
 		extension: '.png' // учесть изменение расширения
 	}))
 	.pipe(parallel(
@@ -90,8 +96,8 @@ gulp.task('imgResize', function() {
 2). создается json;
 3). с помощью выбранного формата используется нужный шаблон с даными json для соз
 дания файла css, scss или др.*/
-gulp.task('sprite', gulp.series('imgResize', function(done) {
-	let spriteData = gulp.src('app/sprites/img/readyFiles/*.+(png||jpeg||jpg)')
+gulp.task('sprite', function(done) {
+	let spriteData = gulp.src('app/img/sprites/readyFiles/*.+(png||jpeg||jpg)')
 	.pipe(spritesmith({
 		imgName: 'sprite.png',
 		imgPath: '../img/sprites/sprite.png',
@@ -108,7 +114,28 @@ gulp.task('sprite', gulp.series('imgResize', function(done) {
 	spriteData.css.pipe(gulp.dest('app/sass/myLibs/'));
 
 	done();
-}));
+});
+
+//=======================SVG Спрайты===================================================
+
+gulp.task('svgsprite', function () {
+    return gulp
+        .src('test/src/*.svg')
+        .pipe(svgmin(function (file) {
+            var prefix = path.basename(file.relative, path.extname(file.relative));
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        prefix: prefix + '-',
+                        minify: true
+                    }
+                }]
+            }
+        }))
+        .pipe(svgstore())
+        .pipe(gulp.dest('test/dest'));
+});
+
 //=================================================================================
 
 //Создание сервера browserSync;
@@ -129,7 +156,10 @@ gulp.task('watch', (done) => {
 	gulp.watch('app/sass/libs/*.+(sass||scss||css)', gulp.series('sass-libs')); // только внешние либы;
 	gulp.watch('app/js/**/*.js', (done) => {browserSync.reload(), done()});
 	gulp.watch(['app/html/**/*.html', 'app/index.html'], (done) => {browserSync.reload(), done()});
-	gulp.watch('app/img/sprites/originalFiles/*.+(png||jpg||jpeg)', gulp.series('sprite'));
+	//c преобразовынием к одинаковым размерам (выставлено 50*50);
+	gulp.watch('app/img/sprites/originalFiles/*.+(png||jpg||jpeg)', gulp.series('imgResize', 'sprite'));
+	//без преобразования к одинаковым размерам (как есть);
+	gulp.watch('app/img/sprites/readyFiles/*.+(png||jpg||jpeg)', gulp.series('sprite'));
 	done();
 });
 
@@ -137,7 +167,7 @@ gulp.task('watch', (done) => {
 запуск таксов перед наблюдением, 
 запуск наблюдения*/
 gulp.task('default', gulp.parallel(
-	'browser-sync', 'sass', 'sass-libs', 'scripts', 'sprite', 'watch'
+	'browser-sync', 'sass', 'sass-libs', 'scripts', 'sprite', 'svgsprite','watch'
 	), done => done());
 
 
