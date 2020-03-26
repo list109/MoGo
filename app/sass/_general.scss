@@ -1,63 +1,67 @@
 // импорт библиотек
-@import 'myLibs/_fonts.scss';
-@import 'normalize';
-@import 'myLibs/_color-theme.scss';
-@import 'myLibs/_animation.scss';
-@import 'myLibs/_buttons.scss';
-@import 'myLibs/_mixin.scss';
-@import 'myLibs/_templates.scss';
-@import 'myLibs/_tabs.scss';
-@import 'myLibs/_media.scss';
-@import 'myLibs/_sprite.scss';
+@import "myLibs/_fonts.scss";
+@import "normalize";
+@import "myLibs/_color-theme.scss";
+@import "myLibs/_animation.scss";
+@import "myLibs/_buttons.scss";
+@import "myLibs/_mixin.scss";
+@import "myLibs/_templates.scss";
+@import "myLibs/_media.scss";
+@import "myLibs/_sprite.scss";
+@import "myLibs/_icons.scss";
 
-//  Стили myLib:
-//  1. _animation.scss
-//	2. _buttons.scss
-//	3. _color-theme.scss
-//	4. _fonts.scss
-//	5. _media.scss
-//	6. _mixin.scss
-//	7. _sprite.scss
-//	8. _sprite-mixin.scss
-//  9. _tabs.scss
-// 10. _templates.scss
+// Подключенные файлы:
+// 	1.Стили myLib:
+//      _animation.scss
+//	    _buttons.scss
+//	    _color-theme.scss
+//	    _fonts.scss
+//	    _media.scss
+//	    _mixin.scss
+//	    _sprite.scss
+//	    _sprite-mixin.scss
+//      _tabs.scss
+// 	    _templates.scss
+//  2. normalize
 
 // ==================ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ=====================
 //	Оглавление:
 
-//  Стили внутри:
 //	1. Пользовательские стили
+//  	1.1 body, :root
+//		1.2 Ссылки
+//		1.3 Списки
+//		1.4 Заголовки
 //	2. Типографика
 //	3. Сетка
-//	4. Полосы	
+//	4. Полосы
 //	5. Clearfix
-//	6. Кнопки
-//	7. Навигация
-//	8. Основной заголовок
+//	6. Общие стили
 
 // Переменные для общего использования:
-
 
 // 1. ПОЛЬЗОВАТЕЛЬСКИЕ СТИЛИ ===============================
 
 //1.1 body, :root; ====================
 
-head, body {
+head,
+body {
 	overflow-x: hidden;
 }
 
-:root { // элемент HTML
+:root {
+	// элемент HTML
 	font-size: 1em;
 	@include media-breakpoint-down(lg) {
-		font-size: .95rem;
+		font-size: 0.95rem;
 	}
 	@include media-breakpoint-down(xs) {
-		font-size: .9rem;
+		font-size: 0.9rem;
 	}
 	@include media-breakpoint-down(xxs) {
-		font-size: .85em;
+		font-size: 0.85em;
 	}
-};
+}
 
 body {
 	font: 400 1rem/1.5 $contentFont;
@@ -65,10 +69,20 @@ body {
 }
 
 //1.2 Ссылки ====================
-a {
+.link {
+	display: block;
+	box-sizing: border-box;
 	text-decoration: none;
-	color: $font-color;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	transition: 0.2s ease-in;
+	color: inherit;
+	cursor: pointer;
+	&::before {
+		transition: 0.2s ease-in;
+	}
+	&_light {
+		color: $font-light-color;
+	}
 }
 
 /* a[href^="tel:"] {
@@ -76,18 +90,7 @@ a {
 	padding-bottom: .5em;
 } */
 
-figure {
-	margin: 0;
-}
-
-button {
-	&:active, 
-	&:focus {
-		outline: none;
-	}
-}
-
-//1.3 Остальное ====================
+//1.3 Списки ====================
 
 ul {
 	list-style-type: none;
@@ -98,7 +101,7 @@ li {
 	margin: 0;
 }
 
-//1.4 Заголовки ====================
+//1.4 Заголовки и текст====================
 
 /* h1, h2, h3, h4, h5 {
 	font: { // свойство font сбивает line-height до установок браузера, поэтому font пишеться развернуто;
@@ -130,17 +133,158 @@ h5 {
 		size: 0.875rem; //14px
 		weight: 500;
 	}
-	letter-spacing: .1em;
-	word-spacing: .4em;
+	letter-spacing: 0.1em;
+	word-spacing: 0.4em;
+}
+
+.title {
+	position: relative;
+	text-align: center;
+	font-family: $titleFont;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: $font-dark-color;
+	font-size: 1.875em;
+	margin-bottom: 0;
+	transition: color .2s ease-in;
+	&_section {
+		line-height: 1.6;
+		padding-bottom: 1.05em;
+		margin-bottom: 1.4em;
+		letter-spacing: -0.7px;
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 1em;
+			padding-bottom: .8em;
+		}
+	}
+	&_size_large {
+		//font-size: 8.75rem;
+		font-size: 9.3rem;
+		@media(max-width: 1600px) and (orientation: landscape) {
+			font-size: 6rem;
+		}
+		@include media-breakpoint-down(1024px) {
+			font-size: 6rem;
+		}
+		@include media-breakpoint-down(sm) {
+			font-size: 3.5rem;
+		}
+		@media(max-width: 768px) and (orientation: landscape){
+			font-size: 2.3rem;
+		}
+		@media(max-width: 768px) and (orientation: landscape) and (max-height: 400px) {
+			font-size: 1.8rem;
+		}
+		@include media-breakpoint-down(xs) {
+			font-size: 2rem;
+		}
+	}
+	&_size_medium {
+		font-size: 1.125em;
+	}
+	&_size_small {
+		font-size: .875em;
+	}
+	&_size_mini {
+		font-size: .75em;
+	}
+	&_color_light {
+		color: $font-light-color;
+	}
+	&_color_warn {
+		color: $warn-color;
+	}
+	&_offset_none {
+		margin: 0;
+	}
+	&_align_left {
+		text-align: left;
+	}
+	&_weight_regular {
+		font-weight: 400;
+	}
+}
+
+.subtitle {
+	display: block;
+	font-family: $subtitleFont;
+	font-size: 1.5rem;
+	text-transform: initial;
+	&_size_large {
+		font-size: 4.5rem;
+		@media(max-width: 1600px) and (orientation: landscape) {
+			font-size: 3.5rem;
+		}
+		@include media-breakpoint-down(1024px) {
+			font-size: 3rem;
+		}
+		@media(max-width: 768px) {
+			font-size: 2.5rem;
+		}
+		@media(max-width: 768px) and (orientation: landscape) and (max-height: 400px) {
+			font-size: 1.6rem;
+		}
+		@include media-breakpoint-down(xs) {
+			font-size: 1.5rem;
+		}
+	}
+	&_color_dark {
+		color: $font-dark-color;
+	}
+	&_author {
+		position: relative;
+		padding-left: 70px;
+	}
+	&_section {
+		letter-spacing: -0.2px;
+	}
+}
+
+.text {
+	text-align: center;
+	font-size: .9375em;
+	font-size: 15px;
+	letter-spacing: .01em;
+	line-height: 1.6;
+	margin: 0;
+	&_style_italic {
+		font-style: italic;
+	}
+	&_align_left {
+		text-align: left;
+	}
+	&_color_light {
+		color: $font-light-color;
+	}
+	&_color_origin {
+		color: $font-color;
+	}
+	&_size_large {
+		font-size: 1.5em;
+		@include media-breakpoint-down(sm) {
+			font-size: 1.1em;
+		}
+		@media(max-width: 320px) {
+			font-size: 1em;
+		}
+	}
+	&_section {
+		letter-spacing: .1px;
+	}
 }
 
 // 2. ТИПОГРАФИКА ===============================
 
-h1, h2, h3, h4, h5, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
 	margin: {
 		bottom: 0;
 		top: 0;
-	};
+	}
 }
 h1 {
 	margin-bottom: 2em;
@@ -163,36 +307,37 @@ p {
 }
 
 small {
-	font-size: .9em;
+	font-size: 0.9em;
 }
 
 // 3. СЕТКА ===============================
 
-
-/* $container-padding: 0.937rem; // 15px
+$container-padding: 0.937rem; // 15px
 
 .container {
 	box-sizing: border-box;
 	width: 100%;
 	max-width: 1200px;
 	margin: 0px auto;
-	@media(max-width: 1260px) {
-		max-width: 1100px;
+	&_offset {	
+		padding: 0 $container-padding;
 	}
-	@include  media-breakpoint-down($max-width: lg) {
-		max-width: 940px
+	&_size_mini {
+		max-width: 1000px;
 	}
-	@include  media-breakpoint-down($max-width: md) { //-61px
-		max-width: 707px
-	}
-	@include  media-breakpoint-down($max-width: sm) {
-		max-width: 515px
-	}
+	// @media(max-width: 1260px) {
+	// 	max-width: 1100px;
+	// }
+	// @include  media-breakpoint-down($max-width: lg) {
+	// 	max-width: 940px
+	// }
+	// @include  media-breakpoint-down($max-width: md) { //-61px
+	// 	max-width: 707px
+	// }
+	// @include  media-breakpoint-down($max-width: sm) {
+	// 	max-width: 515px
+	// }
 }
-
-.container {
-	padding: 0 $container-padding;
-} */
 
 
 %col-1-4 {
@@ -216,6 +361,21 @@ small {
 }
 
 // 4. ПОЛОСЫ ===============================
+
+.row {
+	padding-top: 85px;
+	padding-bottom: 110px;
+	@media(max-width: 991px) {
+		padding-top: 80px;
+		padding-bottom: 90px;
+	}
+	@media(max-width: 576px) {
+		padding-top: 60px;
+		padding-bottom: 75px;
+	}
+
+}
+
 /* $margin-box: 5em;
 
 .row {
@@ -237,21 +397,50 @@ small {
 	}
 } */
 
-
 // 5. Clearfix ===============================
 
 .clearfix::before,
 .clearfix::after {
 	content: "";
 	display: block;
-}  
+}
 .clearfix::after {
 	clear: both;
 }
 .clearfix {
 	clear: both;
-	*zoom: 1; 
-} 
+	*zoom: 1;
+}
 
+// 6. Другое ===============================
+blockquote {
+	margin: 0;
+}
 
-// 8. ОБЩИЕ СТИЛИ===============================
+.visuallyhidden {
+	display: none;
+}
+
+.block {
+	display: block;
+}
+
+.slider {
+    position: relative;
+    &-buttons {
+        &__left {
+            left: 0px;
+            transform: translate(50%, -50%);
+        }
+        &__right {
+            right: 0px;
+            transform: translate(-50%, -50%);
+        }
+        &__left,
+        &__right {
+            position: absolute;
+            top: 50%;
+            background-color: transparent;
+        }
+    }
+}

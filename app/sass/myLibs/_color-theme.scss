@@ -2,29 +2,36 @@ $distance: 60;
 $invert-distance: $distance * -1;
 
 // the main colors
-$base-color: hsl(202, 90%, 71%); // базовый цвет
-$invert-base-color: complement($base-color); // сомплементарный цвет базовому
-$error-color: adjust-hue($base-color, $distance); //цвет ошибки
-$info-color: adjust-hue($base-color, $invert-distance); //цвет информации и элементов
-$succes-color: complement($error-color); // цвет успеха
-$warn-color: complement($info-color); // цвет предупреждения, внимания
+$base-color: hsl(87, 100%, 91%);
+$info-color: adjust-color($base-color, $hue: 82, $saturation: -44%, $lightness: -18%);
+$warn-color: adjust-color($base-color, $hue: -87, $saturation: -17%, $lightness: -18%);
+$warn-color-hovered: adjust-color($warn-color, $lightness: -20%, $hue: -10, $saturation: -20%);
+$success-color: adjust-color($base-color, $hue: -40, $saturation: -5%, $lightness: -15%);
+$disable-color: #f8f8f8;
+$light-color: #fff;
+$dark-color: #999;
 
 // font-color
-$font-color: scale-color($invert-base-color, $saturation: 0%, $lightness: 100%);
-$alt-font-color: scale-color($font-color, $saturation: 0%, $lightness: -50%);
+$font-color: #999;
+$font-dark-color: #000;
+$font-light-color: #fff;
+$font-disable-color: #faf3dc;
 
-// font-shadow-color
+$gray-color: #f4f4f4;
 
-// link-color
+//border-color
+$border-disable-color: #e5e5e5;
 
-// buttons color for a carousel
 
-// round-border
+//icon-color (for svg)
+$icon-color: #95e1d3;
+$icon-color-hovered: adjust-color($icon-color, $lightness: -20%);
+$icon-disable-color: #ccc;
+$icon-light-color: #fff;
 
-// row-color
-$row-color: change-color($base-color, $saturation: 0, $lightness: 100%);
-$alt-row-color: scale-color($base-color, $saturation: -100%, $lightness: -55%);
 
+// gradient
+$gradient: linear-gradient(to bottom, change-color($warn-color, $alpha: 0.9), change-color($success-color, $alpha: 0.9));
 
 /* 
 Example:

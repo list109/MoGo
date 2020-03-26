@@ -2,6 +2,70 @@
 
 // КНОПКИ
 
-// 1. ЦВЕТА КНОПОК
+.btn {
+  box-sizing: border-box;
 
-// 1.1 Цвета основных кнопок
+  border: none;
+  padding: 0;
+  outline: none;
+
+  color: $font-light-color;  
+  text-transform: uppercase;  
+  background-color: transparent;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.btn_mobile {
+  display: none;
+  @media(max-width: 991.98px) {
+    display: block;
+  }
+  box-sizing: border-box;
+  position: relative;
+  width: 40px;
+  height: 30px;
+  border-bottom: 3px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    background-color: #fff;
+    transition: 0.2s ease-in;
+  }
+  &::before {
+    top: 50%;
+  }
+  &::after {
+    top: 0;
+  }
+}
+
+.btn_mobile.btn_active {
+  z-index: 20;
+  border-bottom: 0;
+  position: fixed;
+  &::before,
+  &::after {
+    background-color: #FCE388;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+}
+
+.btn_action_flip {
+  transform: scale(-1);
+}
+

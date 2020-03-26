@@ -1,59 +1,1164 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
 
 	<!-- 1. Блок meta-->
 	<meta charset="UTF-8">
-	<meta name="description" content="">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- адаптировать под разрешение устройста, не маштабировать при повороте, соотношение 1:1 между пикселями CSS и независимыми пикселями устройства. -->
-	<meta name="HandheldFriendly" content="true"> <!-- оптимизация под мобильные устройства на Palm и Blackberry, в таком браузере как AvantGo и др. -->
-	<meta name='MobileOptimized' content='width'> <!-- адаптировать под разрешение устройств моб. браузеров IE Mobile или Pocket IE.  -->
-	<meta name="apple-mobile-web-app-capable" content="yes"> <!-- в Safari iOS для закрепленных сайтов на экране «Домой» включает полноэкранный режим. -->
-	
-	
+
+	<title>Some name</title>
+	<meta name="description" content="Some description">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- адаптировать под разрешение устройста, не маштабировать при повороте, соотношение 1:1 между пикселями CSS и независимыми пикселями устройства. -->
+	<meta name="HandheldFriendly" content="true">
+	<!-- оптимизация под мобильные устройства на Palm и Blackberry, в таком браузере как AvantGo и др. -->
+	<meta name='MobileOptimized' content='width'>
+	<!-- адаптировать под разрешение устройств моб. браузеров IE Mobile или Pocket IE.  -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- в Safari iOS для закрепленных сайтов на экране «Домой» включает полноэкранный режим. -->
+
+
 	<!-- 2. Блок link-->
 	<!-- 2.1 Блок favicon -->
-	<link rel="icon" sizes="16x16" href="/img/favicons/favicon-16x16.png" type="image/png">
-	<link rel="icon" sizes="32x32" href="/img/favicons/favicon-32x32.png" type="image/png">
-	<!-- 2.2 Блок favicon for apple -->
-	<!-- при добавлении иконки в закладки Apple или иконка сайта в списке выдачи результатов Google и др.-->
-	<!-- девайсом сначало ищется картинка с названием apple-touch-icon-precomposed - сделать иконку без стилевых обработок от Apple -->
-	<link rel="apple-touch-icon-precomposed" href="/img/favicons/apple-touch-icon-precomposed.png">
-	<!-- если apple-touch-icon-precomposed отсутствуе, ищется apple-touch-icon - со стилями от Apple-->
-	<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
-	<!-- далее подбирается подходящая иконка по указанным размера в соответствии разрешения девайса, где: если нужная иконка отсутствует то выбирается следующая большая по размеру, если и такой нет то выбирается большая из списка изображений-->
-	<link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="167x167" href="/img/favicons/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+	<!-- место для интеграции кода от приложения Favicon Generator -->
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#15cb45">
+	<!-- для стилизации плиток Windows и IE на экране приложений -->
+	<meta name="msapplication-TileColor" content="#ffc40d">
+	<meta name="theme-color" content="#4f7d88">
+
 
 	<!-- 2.3 Кастомные стили -->
 	<link rel="stylesheet" href="css/libs.min.css">
-	<link rel="stylesheet" href="css/index.min.css">
-
+	<link rel="stylesheet" href="css/main.min.css">
 	<!-- 2.4 Шрифты -->
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700|Roboto:300i,400&display=swap" rel="stylesheet">
-
-	
-	<title>Some name</title>	
-
-	<!-- <script src="https://kit.fontawesome.com/544c409c65.js"></script> -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Kaushan+Script%7cMontserrat:400,700%7cRoboto:300i,400&display=swap"
+		rel="stylesheet">
 
 </head>
+
 <body>
 
+
 	<!-- 1.ШАПКА -->
-
-
+	<header class="header">
+		<div class="container header-box">
+			<div class="header-top">
+				<div class="logo logo_size_small">MoGo</div>
+				<nav id="menu_header" class="menu-header">
+					<ul class="menu">
+						<li class=" menu__item">
+							<a href="#" class="menu-header-item link link_light">About</a>
+						</li>
+						<li class=" menu__item">
+							<a href="#" class="menu-header-item link link_light">Service</a>
+						</li>
+						<li class=" menu__item">
+							<a href="#" class="menu-header-item link link_light">Work</a>
+						</li>
+						<li class=" menu__item">
+							<a href="#" class="menu-header-item link link_light">Blog</a>
+						</li>
+						<li class=" menu__item">
+							<a href="#" class="menu-header-item link link_light">Contact</a>
+						</li>
+						<li class="menu-header-icon menu__item">
+							<a href="#">
+								<svg class='icon icon_menu icon_color_light'>
+									<use xlink:href='#cart'></use>
+								</svg>
+							</a>
+						</li>
+						<li class="menu-header-icon menu__item">
+							<a href="#">
+								<svg class="icon icon_menu icon_color_light">
+									<use xlink:href="#search"></use>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<button id="btn_header_menu"class="btn btn_mobile"></button>
+			</div>
+			<div class="header-title">
+				<h1 class="title title_size_large header-title__title"><span class="subtitle subtitle_size_large header__subtitle subtitle_section">Creative
+						Template</span>Welcome <span class="block"></span>to MoGo</span></h1>
+				<a href="#" class="link btn header__btn">Learn more</a>
+			</div>
+			<nav class="header__navigation">
+				<div class="header-slider">
+					<ul id="headerSlider" class="menu">
+						<li class="menu__item menu__item_size_large menu__item_align_left">
+							<a href="#" class="link link_light"><span>01</span> Intro</a>
+						</li>
+						<li class="menu__item menu__item_size_large menu__item_align_left">
+							<a href="#" class="link link_light"><span>02</span> Work</a>
+						</li>
+						<li class="menu__item menu__item_size_large menu__item_align_left">
+							<a href="#" class="link link_light"><span>03</span> About</a>
+						</li>
+						<li class="menu__item menu__item_size_large menu__item_align_left">
+							<a href="#" class="link link_light"><span>04</span> Contacts</a>
+						</li>
+					</ul>
+				</div>
+				<div class="header-buttons slider-buttons">
+					<button id="headerSliderLeft" class="btn slider-buttons__left">
+						<svg class='icon icon_color_light icon_size_medium' viewBox="0 0 12 22">
+							<use xlink:href='#arrow_left'></use>
+						</svg>
+					</button>
+					<button id="headerSliderRight" class="btn slider-buttons__right">
+						<svg class='icon icon_color_light icon_size_medium' viewBox="0 0 12 22">
+							<use xlink:href='#arrow_right'></use>
+						</svg>
+					</button>
+				</div>
+			</nav>
+		</div>
+	</header>	
 	<!-- 2.ОСНОВНОЙ РАЗДЕЛ -->
+	<!-- 2.01 About -->
+	<section class="about row container">
+		<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">What we do</span>Story about us</h2>
+		<p class="text text_section container container_size_mini container_offset">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore
+			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat.</p>
+		<ul class="list list-about">
+			<li class="list__item">
+				<div class="list__image layers layers-about">
+					<div class="layers__image layers__image_offset">		
+						<picture>
+							<source media='(min-width: 400px)' srcset='img/about_us/1.webp' type='image/webp'>
+							<source media='(min-width: 400px)' srcset='img/about_us/1.jpg'>
+							<source srcset='img/about_us/1-m.webp' type='image/webp'>
+							<img class='object' src='img/about_us/1-m.jpg' alt='The personal computer and the table'>
+						</picture>								
+						<a href="#">
+							<div class="layers__content">
+								<svg class='icon icon_color_light'>
+									<use xlink:href='#users'></use>
+								</svg>
+								<h3 class="title title_offset_none title_color_light title_size_medium">Super team</h3>
+							</div>
+						</a>		
+					</div>
+				</div>
+			</li>
+			<li class="list__item">
+				<div class="list__image layers layers-about">
+					<div class="layers__image layers__image_offset">
+						<picture>
+							<source srcset='img/about_us/2.webp' type='image/webp'>
+							<img class='object' src='img/about_us/2.jpg' alt="Media devices on the table">
+						</picture>											
+						<a href="#">
+							<div class="layers__content">
+								<svg class='icon icon_color_light'>
+									<use xlink:href='#users'></use>
+								</svg>
+								<h3 class="title title_offset_none title_color_light title_size_medium">Super team</h3>
+							</div>
+						</a>		
+					</div>
+				</div>
+			</li>
+			<li class="list__item">
+				<div class="list__image layers layers-about">
+					<div class="layers__image layers__image_offset">
+						<picture>
+							<source srcset='img/about_us/3.webp' type='image/webp'>
+							<img class='object' src='img/about_us/3.jpg' alt="The plant, notebook and photodevice">
+						</picture>						
+						<a href="#">
+							<div class="layers__content">
+								<svg class='icon icon_color_light'>
+									<use xlink:href='#users'></use>
+								</svg>
+								<h3 class="title title_offset_none title_color_light title_size_medium">Super team</h3>
+							</div>	
+						</a>	
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<!-- 2.02 Counter -->
+	<div class="counter">
+		<div class="container">
+			<ul id="awardsCounter" class="list list-counter">
+				<li class="list__item">
+					<span class="counter__number" data-counter="42">0</span>
+					<p class="counter__desc">Web Design Projects</p>
+				</li>
+				<li class="list__item">
+					<span class="counter__number" data-counter="123">0</span>
+					<p class="counter__desc">Happy client</p>
+				</li>
+				<li class="list__item">
+					<span class="counter__number" data-counter="15">0</span>
+					<p class="counter__desc">Award winner</p>
+				</li>
+				<li class="list__item">
+					<span class="counter__number" data-counter="99">0</span>
+					<p class="counter__desc">Cup of coffee</p>
+				</li>
+				<li class="list__item">
+					<span class="counter__number" data-counter="24">0</span>
+					<p class="counter__desc">Members</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 2.03 Services -->
+	<section class="services row container container_offset">
+		<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">We work with</span>Amazing services</h2>
+		<div class="services__box">
+			<ul class="list list-services">
+				<li class="list__item list-services-item">
+					<div class="list__image">
+						<svg class='icon'>
+							<use xlink:href='#alarm'></use>
+						</svg>
+					</div>
+					<div class="list-services-content">
+						<h3 class="list-services-title title title_size_small title_align_left title_weight_regular">Photography</h3>
+						<p class="list-services-text text text_align_left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+					</div>
+				</li>
+				<li class="list__item list-services-item">
+					<div class="list__image">
+						<svg class='icon'>
+							<use xlink:href='#line_graph'></use>
+						</svg>
+					</div>
+					<div class="list-services-content">
+						<h3 class="list-services-title title title_size_small title_align_left title_weight_regular">Web Design</h3>
+						<p class="list-services-text text text_align_left">Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+					</div>
+				</li>
+				<li class="list__item list-services-item">
+					<div class="list__image">
+						<svg class='icon'>
+							<use xlink:href='#computer'></use>
+						</svg>
+					</div>
+					<div class="list-services-content">
+						<h3 class="list-services-title title title_size_small title_align_left title_weight_regular">Creativity</h3>
+						<p class="list-services-text text text_align_left">Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+					</div>
+				</li>
+			</ul>
+			<ul class="list list-services">
+				<li class="list__item list-services-item">
+					<div class="list__image">
+						<svg class='icon'>
+							<use xlink:href='#book'></use>
+						</svg>
+					</div>
+					<div class="list-services-content">
+						<h3 class="list-services-title title title_size_small title_align_left title_weight_regular">Seo</h3>
+						<p class="list-services-text text text_align_left">Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+					</div>
+				</li>
+				<li class="list__item list-services-item">
+					<div class="list__image">
+						<svg class='icon'>
+							<use xlink:href='#home'></use>
+						</svg>
+					</div>
+					<div class="list-services-content">
+						<h3 class="list-services-title title title_size_small title_align_left title_weight_regular">Css/Html</h3>
+						<p class="list-services-text text text_align_left">Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
+					</div>
+				</li>
+				<li class="list__item list-services-item">
+					<div class="list__image">
+						<svg class='icon'>
+							<use xlink:href='#image'></use>
+						</svg>
+					</div>
+					<div class="list-services-content">
+						<h3 class="list-services-title title title_size_small title_align_left title_weight_regular">Digital</h3>
+						<p class="list-services-text text text_align_left">Sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- 2.04 Design -->
+	<section class="design row">
+		<div class="container">
+			<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">For all devices</span>Unique design</h2>
+			<div class="phone"></div>
+		</div>
+	</section>
+	<!-- 2.05 Activity -->
+	<section class="activity row container">
+		<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">Service</span>What we do</h2>
+		<p class="text container container_size_mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat.</p>
+			<div class="activity-box">
+				<div class="activity-image">
+					<picture>
+						<source media="(min-width: 400px)" srcset="img/activity/designer.webp" type='image/webp'>
+						<source media="(min-width: 400px)" srcset="img/activity/designer.jpg">
+						<source srcset='img/activity/designer-m.webp' type='image/webp'>
+						<img class='object' src='img/activity/designer-m.jpg' alt='The designer places his works on the wall'>
+					</picture>
+				</div>
+				<div class="activity-content">
+					<ul class="list list-activity">
+						<li class="list__item"  data-accordion>
+							<div class="list__title">
+								<h3 class="title title_size_small title_weight_regular title_align_left">
+									<span class="list-activity-icon">
+										<svg class='icon'>
+											<use xlink:href='#picture'></use>
+										</svg>
+									</span> Photography
+								</h3>
+								<button class="btn" data-accordion-btn data-flipping-btn>
+									<svg class='icon icon_color_disable icon_size_small' viewBox="0 0 22 12">
+										<use xlink:href='#arrow_up'></use>
+									</svg>
+								</button>
+							</div>
+							<div class="list__content list__content_off" data-accordion-content="vertical">
+								<p class="list__text text text_style_italic text_align_left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+									labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+									laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+									voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+									cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</li>
+						<li class="list__item" data-accordion>
+							<div class="list__title">
+								<h3 class="title title_size_small title_weight_regular title_align_left">
+									<span class="list-activity-icon">
+										<svg class='icon'>
+											<use xlink:href='#equalizer'></use>
+										</svg>
+									</span> Creativity
+								</h3>
+								<button class="btn" data-accordion-btn data-flipping-btn>
+									<svg class='icon icon_color_disable icon_size_small' viewBox="0 0 22 12">
+										<use xlink:href='#arrow_down'></use>
+									</svg>
+								</button>
+							</div>
+							<div class="list__content" data-accordion-content="vertical">
+								<p class="list__text text text_style_italic text_align_left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+									labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+									laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+									voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+									cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</li>
+						<li class="list__item" data-accordion>
+							<div class="list__title">
+								<h3 class="title title_size_small title_weight_regular title_align_left">
+									<span class="list-activity-icon">
+										<svg class='icon'>
+											<use xlink:href='#bullseye'></use>
+										</svg>
+									</span> CWeb design
+								</h3>
+								<button class="btn" data-accordion-btn data-flipping-btn>
+									<svg class='icon icon_color_disable icon_size_small' viewBox="0 0 22 12">
+										<use xlink:href='#arrow_down'></use>
+									</svg>
+								</button>
+							</div>
+							<div class="list__content" data-accordion-content="vertical">
+								<p class="list__text text text_style_italic text_align_left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+									labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+									laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+									voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+									cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+	</section>
+	<!-- 2.06 Comments -->
+	<div class="comments comments_theme_dark icon-comments">
+		<div class="slider container">
+			<div class="comments-box">
+				<ul id="iconCommentSlider" class="comments-list icon-comments-list">
+					<li class="comment icon-comment">
+						<div class="comment__image icon-comment-image">
+							<svg class='icon icon_size_large' viewBox="0 0 32 32">
+								<use xlink:href='#speech'></use>
+							</svg>
+						</div>
+						<div class="comment__content">
+							<blockquote class="comment__text text text_style_italic text_align_left text_size_large">
+								“1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation.”
+							</blockquote>
+							<p class="comment__author subtitle subtitle_color_dark subtitle_author highlight highlight_position_left">Jon Doe</p>
+						</div>
+					</li>
+					<li class="comment icon-comment">
+						<div class="comment__image icon-comment-image">
+							<svg class='icon icon_size_large' viewBox="0 0 32 32">
+								<use xlink:href='#speech'></use>
+							</svg>
+						</div>
+						<div class="comment__content">
+							<blockquote class="comment__text text text_style_italic text_align_left text_size_large">
+								“2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation.”
+							</blockquote>
+							<p class="comment__author subtitle subtitle_color_dark subtitle_author highlight highlight_position_left">Jon Doe</p>
+						</div>
+					</li>
+					<li class="comment icon-comment">
+						<div class="comment__image icon-comment-image">
+							<svg class='icon icon_size_large' viewBox="0 0 32 32">
+								<use xlink:href='#speech'></use>
+							</svg>
+						</div>
+						<div class="comment__content">
+							<blockquote class="comment__text text text_style_italic text_align_left text_size_large">
+								“3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation.”
+							</blockquote>
+							<p class="comment__author subtitle subtitle_color_dark subtitle_author highlight highlight_position_left">Jon Doe</p>
+						</div>
+					</li>
+				</ul>	
+			</div>
+			<div class="slider-buttons">
+				<button id="iconCommentSliderLeft" class="btn slider-buttons__left comments-left-arrow">
+					<svg class='icon icon_color_disable icon_size_small' viewBox="0 0 12 22">
+						<use xlink:href='#arrow_left'></use>
+					</svg>
+				</button>
+				<button id="iconCommentSliderRight" class="btn slider-buttons__right comments-right-arrow">
+					<svg id="" class='icon icon_color_disable icon_size_small' viewBox="0 0 12 22">
+						<use xlink:href='#arrow_right'></use>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- 2.07 Team -->
+	<section class="activity row container">
+		<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">Who we are</span> Weet our team</h2>
+		<p class="text text_section container container_size_mini container_offset">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat.</p>
+		<ul class="list list-members">
+			<li class="list__item">
+					<div class="list__image layers layers-members">
+						<div class="layers__image layers__image_offset">
+							<picture>
+								<source media="(min-width: 400px)" srcset="img/team/1.webp" type='image/webp'>
+								<source media="(min-width: 400px)" srcset="img/team/1.jpg">
+								<source srcset='img/team/1-m.webp' type='image/webp'>
+								<img class='object' src='img/team/1-m.jpg"' alt='Matthew Dix - Graphic Designer'>
+							</picture>
+							<div class="layers__content">
+								<ul class="links links-members">
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 8 16">
+												<use xlink:href='#facebook'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 13">
+												<use xlink:href='#twitter'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 16">
+												<use xlink:href='#pinterest'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 16">
+												<use xlink:href='#instagram'></use>
+											</svg>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				<h3 class="list-members-title title title_size_small">Matthew Dix</h3>
+				<p class="list-members-text text text_style_italic">Graphic Design</p>
+			</li>
+			<li class="list__item">
+					<div class="list__image layers layers-members">
+						<div class="layers__image layers__image_offset">
+							<picture>
+								<source media='(min-width: 400px)' srcset='img/team/2.webp' type='image/webp'>
+								<source media='(min-width: 400px)' srcset='img/team/2.jpg'>
+								<source srcset='img/team/2-m.webp' type='image/webp'>
+								<img class='object' src='img/team/2-m.jpg' alt='Christopher Campbell - Branding/UX design'>
+							</picture>
+							<div class="layers__content">
+								<ul class="links links-members">
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 8 16">
+												<use xlink:href='#facebook'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 13">
+												<use xlink:href='#twitter'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 16">
+												<use xlink:href='#pinterest'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 16">
+												<use xlink:href='#instagram'></use>
+											</svg>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				<h3 class="list-members-title title title_size_small">Christopher Campbell</h3>
+				<p class="list-members-text text text_style_italic">Branding/UX design</p>
+			</li>
+			<li class="list__item">
+					<div class="list__image layers layers-members">
+						<div class="layers__image layers__image_offset">
+							<picture>
+								<source media='(min-width: 400px)' srcset='img/team/3.webp' type='image/webp'>
+								<source media='(min-width: 400px)' srcset='img/team/3.jpg'>
+								<source srcset='img/team/3-m.webp' type='image/webp'>
+								<img class='object' src='img/team/3-m.jpg' alt='Michael Fertig - Developer'>
+							</picture>
+							<div class="layers__content">
+								<ul class="links links-members">
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 8 16">
+												<use xlink:href='#facebook'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 13">
+												<use xlink:href='#twitter'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 16">
+												<use xlink:href='#pinterest'></use>
+											</svg>
+										</a>
+									</li>
+									<li class="links__item">
+										<a class="link" href="#">
+											<svg class="icon icon_warn_color icon_size_medium" viewBox="0 0 16 16">
+												<use xlink:href='#instagram'></use>
+											</svg>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				<h3 class="list-members-title title title_size_small">Michael Fertig</h3>
+				<p class="list-members-text text text_style_italic">Developer</p>
+			</li>
+		</ul>
+	</section>
+	<!-- 2.08 Labels -->
+	<div class="labels">
+		<div class="labels-box container">
+			<div class="label label_one"></div>
+			<div class="label label_two"></div>
+			<div class="label label_three"></div>
+			<div class="label label_four"></div>
+			<div class="label label_five"></div>
+			<div class="label label_six"></div>
+		</div>
+	</div>
+	<!-- 2.09 Art grid -->
+	<section class="arts row">
+		<h3 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">What we do</span>Some of our work</h3>
+		<p class="text text_section container container_size_mini container_offset">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</p>
+		<div class="arts-grid">
+			<div class="man">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/man.webp' type='image/webp'>
+								<img class='object' src='img/grid/man.jpg' alt='The man'>
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regular">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="roof">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/roof.webp' type='image/webp'>
+								<img class="object" src="img/grid/roof.jpg" alt="The build with half-round roof">
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regular">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>		
+				</a>
+			</div>
+			<div class="ocean">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/ocean.webp' type='image/webp'>
+								<img class="object" src="img/grid/ocean.jpg" alt="The Jellyfish on background of sea deeps">
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regular">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="dome">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/dome.webp' type='image/webp'>
+								<img class="object" src="img/grid/dome.jpg" alt="The glass dome of the build">
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regular">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="bridge">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/bridge.webp' type='image/webp'>
+								<img class="object" src="img/grid/bridge.jpg" alt="The Golden gate bridge">
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regular">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="yard">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/whithin.webp' type='image/webp'>
+								<img class="object" src="img/grid/whithin.jpg" alt="In the yard of round build">
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regular">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="building">
+				<a href="#">
+					<div class="layers layers-arts">
+						<div class="layers__image">
+							<picture>
+								<source srcset='img/grid/building.webp' type='image/webp'>
+								<img class="object" src="img/grid/building.jpg" alt="The tall glassed building">
+							</picture>
+							<div class="layers__content">
+								<span class="arts-grid-icon">
+									<svg class='icon icon_color_light'>
+										<use xlink:href='#picture'></use>
+									</svg>
+								</span>
+								<h3 class="arts-grid-title title title_size_small title_color_light title_weight_regularr">Creatively designed</h3>
+								<p class="arts-grid-text text text_style_italic text_color_light">Lorem ipsum dolor sit</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+	<!-- 2.10 Comments -->
+	<div class="comments comments-box slider">
+		<div class="slider container">
+			<div class="comments-box">
+				<ul id="commentSlider" class="comments-list">
+					<li class="comment ava-comments-list">
+						<div class="comment__ava">
+							<img class="object" src="img/feedbacks/big_icon_feedback.jpg" alt="Customer Joshua Earle">
+						</div>
+						<div class="comment__content">
+							<blockquote class="comment__text text text_align_left text_style_italic text_size_large">
+								“1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation.”
+							</blockquote>
+							<p class="comment__author subtitle subtitle_color_dark subtitle_author highlight highlight_position_left">Joshua Earle</p>
+						</div>
+					</li>
+					<li class="comment">
+						<div class="comment__ava">
+							<img class="object" src="img/feedbacks/big_icon_feedback.jpg" alt="Customer Joshua Earle">
+						</div>
+						<div class="comment__content">
+							<blockquote class="comment__text text text_align_left text_style_italic text_size_large">
+								“2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation.”
+							</blockquote>
+							<p class="comment__author subtitle subtitle_color_dark subtitle_author highlight highlight_position_left">Jon Doe</p>
+						</div>
+					</li>
+					<li class="comment">
+						<div class="comment__ava">
+							<img class="object" src="img/feedbacks/big_icon_feedback.jpg" alt="Customer Joshua Earle">
+						</div>
+						<div class="comment__content">
+							<blockquote class="comment__text text text_align_left text_style_italic text_size_large">
+								“3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation.”
+							</blockquote>
+							<p class="comment__author subtitle subtitle_color_dark subtitle_author highlight highlight_position_left">Jon Doe</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="slider-buttons">
+				<button id="commentSliderLeft" class="btn slider-buttons__left comments-left-arrow">
+					<svg class='icon icon_color_disable icon_size_small' viewBox="0 0 12 22">
+						<use xlink:href='#arrow_left'></use>
+					</svg>
+				</button>
+				<button id="commentSliderRight" class="btn slider-buttons__right comments-right-arrow">
+					<svg id="" class='icon icon_color_disable icon_size_small' viewBox="0 0 12 22">
+						<use xlink:href='#arrow_right'></use>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- 2.11 Feedbacks -->
+	<section class="feedbacks row">
+		<div class="container container_offset">
+			<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">Happy Clients</span>What people say</h2>
+			<ul class="list list-feedbacks">
+				<li class="list__item">
+					<div class="list__image list__image_small list__image_style_round">
+						<img class="object" src="img/feedbacks/mini_icon_feedback_1.jpg" alt="Graphic Design - Matthew Dix">
+					</div>
+					<div class="list__content">
+						<h3 class="title title_size_small title_align_left title_weight_regular list-feedbacks-title">Matthew Dix</h3>
+						<span class="text text_style_italic text_align_left list-feedbacks-author highlight highlight_position_bottom-left">Graphic Design</span>
+						<p class="list-feedbacks-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+							labore et dolore magna aliqua. Ut enim ad minim.</p>
+					</div>
+				</li>
+				<li class="list__item">
+					<div class="list__image list__image_small list__image_style_round">
+						<img class="object" src="img/feedbacks/mini_icon_feedback_2.jpg" alt="Graphic Design - Matthew Dix">
+					</div>
+					<div class="list__content">
+						<h3 class="title title_size_small title_align_left title_weight_regular list-feedbacks-title">Nick Karvounis</h3>
+						<span class="text text_style_italic text_align_left list-feedbacks-author highlight highlight_position_bottom-left">Graphic Design</span>
+						<p class="list-feedbacks-text">Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua. Ut enim ad minim veniam.</p>
+					</div>
+				</li>
+				<li class="list__item">
+					<div class="list__image list__image_small list__image_style_round">
+						<img class="object" src="img/feedbacks/mini_icon_feedback_3.jpg" alt="Graphic Design - Matthew Dix">
+					</div>
+					<div class="list__content">
+						<h3 class="title title_size_small title_align_left title_weight_regular list-feedbacks-title">Jaelynn Castillo </h3>
+						<span class="text text_style_italic text_align_left list-feedbacks-author highlight highlight_position_bottom-left">Graphic Design</span>
+						<p class="list-feedbacks-text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+							et dolore magna aliqua. Ut enim ad minim veniam.</p>
+					</div>
+				</li>
+				<li class="list__item">
+					<div class="list__image list__image_small list__image_style_round">
+						<img class="object" src="img/feedbacks/mini_icon_feedback_4.jpg" alt="Graphic Design - Matthew Dix">
+					</div>
+					<div class="list__content">
+						<h3 class="title title_size_small title_align_left title_weight_regular list-feedbacks-title">Mike Petrucci</h3>
+						<span class="text text_style_italic text_align_left list-feedbacks-author highlight highlight_position_bottom-left">Graphic Design</span>
+						<p class="list-feedbacks-text">Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim..</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- 2.12 Blog -->
+	<section class="blog row container">
+		<h2 class="title title_section highlight highlight_position_bottom"><span class="subtitle subtitle_section">Our stories</span> Latest blog</h2>
+		<div class="list list-blog">
+			<div class="blog-item">
+				<div class="blog-item__image">
+					<picture>
+						<source srcset='img/blog/1.webp' type='image/webp'>
+						<img class="object" src="img/blog/1.jpg" alt="The girl writes some notices">
+					</picture>
+					<div class="blog-item__date">15 <span class="blog-item__month">Jan</span></div>
+				</div>
+				<h3 class="title title_size_small title_align_left blog-title title_weight_regular blog-item-title">Lorem ipsum dolor sit amet</h3>
+				<p class="blog-item-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<ul class="blog-item__counter links">
+					<li class="links__item">
+						<a class="link blog-link" href="#">
+							<svg class='icon icon_size_extrasmall' viewBox="0 0 20 12">
+								<use xlink:href='#view'></use>
+							</svg>
+							<span class="text text_style_italic">542</span></a>
+					</li>
+					<li class="links__item blog-item-link">
+						<a class="link blog-link" href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 15">
+								<use xlink:href='#speech_bubble'></use>
+							</svg>
+							<span class="text text_style_italic">17</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="blog-item">
+				<div class="blog-item__image">
+					<picture>
+						<source srcset='img/blog/2.webp' type='image/webp'>
+						<img class="object" src="img/blog/2.jpg" alt="The girl writes some notices">
+					</picture>
+					<div class="blog-item__date">14 <span class="blog-item__month">Jan</span></div>
+				</div>
+				<h3 class="title title_size_small title_align_left blog-title title_weight_regular blog-item-title">Sed do eiusmod tempor</h3>
+				<p class="blog-item-text">Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<ul class="blog-item__counter links">
+					<li class="links__item">
+						<a class="link blog-link" href="#">
+							<svg class='icon icon_size_extrasmall' viewBox="0 0 20 12">
+								<use xlink:href='#view'></use>
+							</svg>
+							<span class="text text_style_italic">992</span></a>
+					</li>
+					<li class="links__item blog-item-link">
+						<a class="link blog-link" href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 15">
+								<use xlink:href='#speech_bubble'></use>
+							</svg>
+							<span class="text text_style_italic">42</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="blog-item">
+				<div class="blog-item__image">
+					<picture>
+						<source srcset='img/blog/3.webp' type='image/webp'>
+						<img class="object" src="img/blog/3.jpg" alt="The girl writes some notices">
+					</picture>
+					<div class="blog-item__date">12 <span class="blog-item__month">Jan</span></div>
+				</div>
+				<h3 class="title title_size_small title_align_left blog-title title_weight_regular blog-item-title">Incididunt ut labore et dolore</h3>
+				<p class="blog-item-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<ul class="blog-item__counter links">
+					<li class="links__item">
+						<a class="link blog-link" href="#">
+							<svg class='icon icon_size_extrasmall' viewBox="0 0 20 12">
+								<use xlink:href='#view'></use>
+							</svg>
+							<span class="text text_style_italic">1560</span></a>
+					</li>
+					<li class="links__item blog-item-link">
+						<a class="link blog-link" href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 15">
+								<use xlink:href='#speech_bubble'></use>
+							</svg>
+							<span class="text text_style_italic">98</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<!-- 2.13 Map -->
+	<div class="map">
+		<a href="#" class="map__link">
+			<div class="map__pointer">
+				<svg class='icon icon_size_medium icon_warn_color' viewBox="0 0 20 26">
+					<use xlink:href='#pointer'></use>
+				</svg>
+				<span class="map__title title title_color_warn">Open map</span>
+			</div>
+		</a>
+	</div>
 
 
 	<!-- 3.ПОДВАЛ -->
+	<footer class="footer">
+		<div class="container footer-grid">
+			<div class="footer-desc">
+				<h2 class="logo logo_size_large logo_color_dark">MoGo</h2>
+				<p class="text text_align_left footer-desc__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+					commodo consequat.</p>
+			</div>
+			<div class="following">
+				<p class="following__amount"><span>15k</span> followers</p>
+				<div class="following__links links">
+					<span class="following-text text text_style_italic">Follow Us</span>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 8 16">
+								<use xlink:href='#facebook'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 14">
+								<use xlink:href='#twitter'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 16">
+								<use xlink:href='#instagram'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 16">
+								<use xlink:href='#pinterest'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 14">
+								<use xlink:href='#google_plus'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 12">
+								<use xlink:href='#youtube'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 16 16">
+								<use xlink:href='#dribbble'></use>
+							</svg>
+						</a>
+					</div>
+					<div class="links__item">
+						<a href="#">
+							<svg class='icon icon_size_mini' viewBox="0 0 10 16">
+								<use xlink:href='#tumblr'></use>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="following__subscribe">
+					<form action="/" method="get" class="form form-subscribe">
+						<div class="form__section">
+							<input class="form__email" type="email" name="mail" placeholder="Your Email...">
+							<input class="form__submit" type="submit" value="Subscribe">
+						</div>
+					</form>
+				</div>
+			</div>
+			<section class="footer-blog">
+				<h3 class="title title_size_small title_align_left title_weight_regular footer-title">blogs</h3>
+				<ul class="list list-footer-blog">
+					<li class="list__item">
+						<div class="list__image">
+							<img src="img/footer/blogs/1.png" alt="The chandelier">
+						</div>
+						<div class="list__content">
+							<h4 class="title title_size_mini title_align_left title_weight_regular list-footer-blog-title"><a class="link footer-link" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a></h4>
+							<span class="footer-date">Jan 9, 2016</span>
+						</div>
+					</li>
+					<li class="list__item">
+						<div class="list__image">
+							<img src="img/footer/blogs/2.png" alt="The pattern">
+						</div>
+						<div class="list__content">
+							<h4 class="title title_size_mini title_align_left title_weight_regular list-footer-blog-title"><a class="link footer-link" href="#">Consectetur adipiscing elit, sed do eiusmod tempor</a></h4>
+							<span class="footer-date">Jan 9, 2016</span>
+						</div>
+					</li>
+					<li class="list__item">
+						<div class="list__image">
+							<img src="img/footer/blogs/3.png" alt="The guitar">
+						</div>
+						<div class="list__content">
+							<h4 class="title title_size_mini title_align_left title_weight_regular list-footer-blog-title"><a class="link footer-link" href="#">Sed do eiusmod tempor incididunt ut labore</a></h4>
+							<span class="footer-date">Jan 9, 2016</span>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section class="footer-instagram">
+				<h3 class="title title_size_small title_align_left title_weight_regular footer-title">Instagram</h3>
+				<div class="instagram-grid">
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/1.png" alt="The winter mountain">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/2.png" alt="The summer mountain">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/3.png" alt="The wide street">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/4.png" alt="The evening mountain">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/5.png" alt="The wood">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/6.png" alt="The sharp rocks">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/7.png" alt="The underground tunnel">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<a href="#">
+							<img src="img/footer/Instagram/8.png" alt="The tree's cone">
+						</a>
+					</div>
+					<div class="instagram-grid__item">
+						<!-- <a href="#"> -->
+							<img src="img/footer/Instagram/9.png" alt="The sea">
+						<!-- </a> -->
+					</div>
+				</div>
+				<a href="#" class="link instagram-grid__view">View more photos</a>
+			</section>
+			<div class="footer-copyright">
+				<span class="title title_size_small title_weight_regular footer-copyright__title">© 2016 MoGo free PSD template by <a href="#" class="footer-copyright__link">Laaqiq</a></span>
+			</div>
+		</div>
+	</footer>
+	
 
 
+	<!-- Инжектинг SVG -->
+	<div class="visuallyhidden">
+		<!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="alarm"><path d="M30.74 9.5a15.727 15.727 0 00-8.243-8.24A5.868 5.868 0 0130.74 9.5zM30.5 16a14.442 14.442 0 01-3.963 9.94l2.029 2.03a1.482 1.482 0 01-1.049 2.53 1.51 1.51 0 01-1.049-.43l-2.178-2.18a14.471 14.471 0 01-16.566.01l-2.163 2.16a1.5 1.5 0 11-2.122-2.12l2.012-2.01A14.495 14.495 0 1130.5 16zM16 4.5A11.5 11.5 0 1027.5 16 11.5 11.5 0 0016 4.5zm6 13h-6a1.5 1.5 0 01-1.5-1.5V8a1.5 1.5 0 013 0v6.5H22a1.5 1.5 0 010 3zM1.287 9.71a5.994 5.994 0 018.419-8.42 16.016 16.016 0 00-8.419 8.42z" fill-rule="evenodd"/></symbol><symbol id="arrow_down"><path data-name="ARROW / DOWN" d="M2.64.52l7.86 7.86L18.46.42a1.5 1.5 0 012.12 2.12l-9 9a1.511 1.511 0 01-1.08.46h-.01a1.528 1.528 0 01-1.08-.46l-9-9h.01A1.5 1.5 0 112.64.52z" fill-rule="evenodd"/></symbol><symbol id="arrow_left"><path data-name="ARROW / DOWN copy 2" d="M11.477 18.36L3.619 10.5l7.962-7.96A1.5 1.5 0 009.46.42l-9 9A1.481 1.481 0 000 10.5v.01a1.475 1.475 0 00.459 1.07l9 9a1.5 1.5 0 102.018-2.22z" fill-rule="evenodd"/></symbol><symbol id="arrow_right"><path data-name="ARROW / DOWN copy" d="M.52 18.36l7.86-7.86L.42 2.54A1.5 1.5 0 012.54.42l9 9A1.493 1.493 0 0112 10.5v.01a1.488 1.488 0 01-.46 1.07l-9 9a1.5 1.5 0 11-2.02-2.22z" fill-rule="evenodd"/></symbol><symbol id="arrow_up"><path data-name="ARROW / DOWN" d="M2.64 11.47l7.86-7.85 7.96 7.96A1.5 1.5 0 0021 10.5a1.483 1.483 0 00-.42-1.04l-9-9A1.472 1.472 0 0010.5 0h-.01a1.488 1.488 0 00-1.08.46l-9 9h.01a1.5 1.5 0 102.22 2.01z" fill-rule="evenodd"/></symbol><symbol id="book"><path data-name="BOOK 2" d="M31.065 25.89l-14.471 5.99a1.53 1.53 0 01-1.188 0L.935 25.89A1.5 1.5 0 010 24.5v-23A1.5 1.5 0 011.5 0a1.55 1.55 0 01.573.11v.01h.013L16 5.88 29.911.12h.013V.11a1.55 1.55 0 01.573-.11 1.5 1.5 0 011.5 1.5v23a1.5 1.5 0 01-.932 1.39zM14.5 8.5L3 3.74V23.5l11.5 4.76V8.5zM29 3.74L17.5 8.5v19.76L29 23.5V3.74zm-9.121 6.89l5.5-2.5A1.593 1.593 0 0126 8a1.5 1.5 0 01.621 2.87l-5.5 2.5a1.6 1.6 0 01-.621.13 1.5 1.5 0 01-.621-2.87zm0 5.5l5.5-2.5A1.593 1.593 0 0126 13.5a1.5 1.5 0 01.621 2.87l-5.5 2.5v-.01a1.445 1.445 0 01-.621.14 1.5 1.5 0 01-.621-2.87zm0 5.5l5.5-2.5A1.593 1.593 0 0126 19a1.5 1.5 0 01.621 2.87l-5.5 2.5a1.6 1.6 0 01-.621.13 1.5 1.5 0 01-.621-2.87zM6 8a1.6 1.6 0 01.621.13l5.5 2.5a1.5 1.5 0 01-.621 2.87 1.593 1.593 0 01-.621-.13l-5.5-2.5A1.5 1.5 0 016 8zm0 5.5a1.6 1.6 0 01.621.13l5.5 2.5A1.5 1.5 0 0111.5 19a1.439 1.439 0 01-.621-.14v.01l-5.5-2.5A1.5 1.5 0 016 13.5zM6 19a1.6 1.6 0 01.621.13l5.5 2.5a1.5 1.5 0 01-.621 2.87 1.593 1.593 0 01-.621-.13l-5.5-2.5A1.5 1.5 0 016 19z" fill-rule="evenodd"/></symbol><symbol id="bullseye"><path d="M16 32a16 16 0 1116-16 16 16 0 01-16 16zm0-29a13 13 0 1013 13A13 13 0 0016 3zm0 22.5a9.5 9.5 0 119.5-9.5 9.5 9.5 0 01-9.5 9.5zm0-16a6.5 6.5 0 106.5 6.5A6.5 6.5 0 0016 9.5zm0 9.5a3 3 0 113-3 3 3 0 01-3 3z" fill-rule="evenodd"/></symbol><symbol id="cart"><path data-name="SHOPPING CART" d="M17.54 3.1l-2.48 5.5a.815.815 0 01-.7.485l-7.12.475.41 1.177h7.76a1.65 1.65 0 11-1.65 1.651h-7.7a1.65 1.65 0 11-1.65-1.651H5.9L2.72 1.662H.83a.825.825 0 010-1.65h2.48a.835.835 0 01.78.554l.48 1.373h12.21a.826.826 0 01.83.825.941.941 0 01-.07.336zm-12.39.487l1.52 4.357 7.09-.473 1.75-3.884H5.15z" fill-rule="evenodd"/></symbol><symbol id="computer"><path data-name="COMPUTER / OK" d="M29.5 23H20v2.5l2 2v.5H9v-.5l2-2V23H1.5A1.5 1.5 0 010 21.5v-20A1.5 1.5 0 011.5 0h28A1.5 1.5 0 0131 1.5v20a1.5 1.5 0 01-1.5 1.5zM29 2H2v17h27V2zM12.5 9a1.505 1.505 0 011.06.44l.94.94 2.94-2.94a1.5 1.5 0 112.12 2.12l-4 4a1.5 1.5 0 01-2.12 0l-2-2A1.5 1.5 0 0112.5 9z" fill-rule="evenodd"/></symbol><symbol id="dribbble"><path d="M15.837 6.4a7.9 7.9 0 00-.466-1.5 8.22 8.22 0 00-.738-1.36 8.093 8.093 0 00-.976-1.18 8.443 8.443 0 00-1.184-.98 7.971 7.971 0 00-8.947 0 8.434 8.434 0 00-1.183.98 8.093 8.093 0 00-.976 1.18A8.22 8.22 0 00.629 4.9a7.9 7.9 0 00-.467 1.5 8.131 8.131 0 000 3.23 7.9 7.9 0 00.467 1.5 8.22 8.22 0 00.738 1.36 8.093 8.093 0 00.976 1.18 8.434 8.434 0 001.183.98 7.971 7.971 0 008.947 0 8.443 8.443 0 001.184-.98 8.093 8.093 0 00.976-1.18 8.22 8.22 0 00.738-1.36 7.9 7.9 0 00.466-1.5 8.082 8.082 0 000-3.23zM14.83 7.95a15.962 15.962 0 00-4.759-.23 20.156 20.156 0 00-.601-1.34 8.874 8.874 0 003.807-2.7 6.794 6.794 0 011.553 4.27zm-2.317-5.06a7.451 7.451 0 01-3.569 2.47A34.349 34.349 0 006.39 1.38 6.581 6.581 0 018 1.18a6.812 6.812 0 014.513 1.71zM6.364 1.38a.039.039 0 00-.02.01.022.022 0 01.02-.01zm-1.279.46a40.568 40.568 0 012.537 3.93 25.7 25.7 0 01-6.308.84 6.831 6.831 0 013.771-4.77zM1.168 8.01V7.8a25.209 25.209 0 007.015-.97c.2.38.383.77.554 1.16a2.662 2.662 0 00-.269.08 10.8 10.8 0 00-5.557 4.51 6.807 6.807 0 01-1.743-4.57zM8 14.85a6.8 6.8 0 01-4.352-1.57l.153.12a9.25 9.25 0 015.362-4.27c.015 0 .03-.01.045-.01a28.411 28.411 0 011.459 5.19A6.951 6.951 0 018 14.85zm3.818-1.17a29.625 29.625 0 00-1.33-4.88 9.871 9.871 0 014.258.3 6.827 6.827 0 01-2.928 4.58z" fill-rule="evenodd"/></symbol><symbol id="equalizer"><path d="M26.5 16.5h-3A1.5 1.5 0 0122 15V9a1.5 1.5 0 011.5-1.5h3A1.5 1.5 0 0128 9v6a1.5 1.5 0 01-1.5 1.5zm-3-15a1.5 1.5 0 013 0V6h-3V1.5zm-8 23h-3A1.5 1.5 0 0111 23v-6a1.5 1.5 0 011.5-1.5h3A1.5 1.5 0 0117 17v6a1.5 1.5 0 01-1.5 1.5zm-3-23a1.5 1.5 0 013 0V14h-3V1.5zm-8 19h-3A1.5 1.5 0 010 19v-6a1.5 1.5 0 011.5-1.5h3A1.5 1.5 0 016 13v6a1.5 1.5 0 01-1.5 1.5zm-3-19a1.5 1.5 0 013 0V10h-3V1.5zm3 29a1.5 1.5 0 01-3 0V22h3v8.5zm11 0a1.5 1.5 0 01-3 0V26h3v4.5zm11 0a1.5 1.5 0 01-3 0V18h3v12.5z" fill-rule="evenodd"/></symbol><symbol id="facebook"><path d="M7.493.01v2.58s-1.9-.19-2.374.54a7.322 7.322 0 00-.128 2.4h2.518c-.213.98-.365 1.64-.522 2.48h-2.01v8.01H1.488V8.05H0V5.53h1.468c.075-1.84.1-3.67 1.018-4.6C3.518-.11 4.5.01 7.493.01z" fill-rule="evenodd"/></symbol><symbol id="google_plus"><path data-name="google plus" d="M13.5 3.47v2.44h-1V3.47H10v-1h2.5V.03h1v2.44H16v1h-2.5zM6.585 1a2.55 2.55 0 011.408 2.33 2.721 2.721 0 01-1.239 2.1 1.356 1.356 0 00-.81 1.18A2.684 2.684 0 007.055 7.9a2.866 2.866 0 011.444 2.7c0 1.49-1.444 3.17-4.116 3.17C2.039 13.77 0 12.65 0 11.15c0-1.52 1.866-2.99 4.209-2.99.256 0 .49-.01.732-.01A1.621 1.621 0 014.367 7a1.774 1.774 0 01.213-.79c-.127.01-.257-.01-.391-.01A3.059 3.059 0 01.975 3.15C.975 1.51 2.756.01 4.648.01h4.22L7.923 1H6.585zM4.656 8.55c-1.62-.02-3.071.97-3.071 2.15 0 1.21 1.17 2.1 2.789 2.1 2.277 0 3.071-.82 3.071-2.03a1.8 1.8 0 00-.052-.43c-.178-.69-.808-1.02-1.688-1.62a3.209 3.209 0 00-1.049-.17zm1.82-5.2A2.813 2.813 0 004.12.79C3.033.76 2.304 1.83 2.492 3.23A2.827 2.827 0 004.8 5.83c1.087.03 1.863-1.08 1.676-2.48z" fill-rule="evenodd"/></symbol><symbol id="home"><path d="M32 16a1.493 1.493 0 01-2.52 1.09v.01L16.041 3.66l-.038-.04L2.557 17.07a1.525 1.525 0 01-1.053.43 1.5 1.5 0 01-1.5-1.5 1.479 1.479 0 01.461-1.08L14.923.46A1.51 1.51 0 0116.004 0h.092c.023 0 .045.01.068.01a1.479 1.479 0 01.933.47l5.9 5.9V5a1.5 1.5 0 013 0v4.38l5.6 5.6A1.485 1.485 0 0132 16zm-3 2.5V29a1.5 1.5 0 01-1.5 1.5h-3v-12h-6v12h-14A1.5 1.5 0 013 29V18.5l13-13zm-15.5 0h-6v6h6v-6z" fill-rule="evenodd"/></symbol><symbol id="image"><path d="M30.5 32h-29A1.5 1.5 0 010 30.5v-29A1.5 1.5 0 011.5 0h29A1.5 1.5 0 0132 1.5v29a1.5 1.5 0 01-1.5 1.5zM29 3H3v26h26V3zM6.5 4.5H12a1.5 1.5 0 010 3H7.5V12a1.5 1.5 0 01-3 0V4.5h2zM4.5 20a1.5 1.5 0 013 0v4.5H12a1.5 1.5 0 010 3H4.5V20zM20 4.5h7.5V12a1.5 1.5 0 01-3 0V7.5H20a1.5 1.5 0 010-3zm0 20h4.5V20a1.5 1.5 0 013 0v7.5H20a1.5 1.5 0 010-3z" fill-rule="evenodd"/></symbol><symbol id="instagram"><path d="M14 16.01H2a1.994 1.994 0 01-2-1.99v-12A2 2 0 012 .01h12a2 2 0 012 2.01v12a1.994 1.994 0 01-2 1.99zM8 4.91a3.1 3.1 0 00-2.811 1.8.177.177 0 01-.014.04 2.082 2.082 0 00-.08.2.867.867 0 00-.036.1c-.023.07-.042.14-.059.21a1.839 1.839 0 00-.064.33c0 .03-.011.06-.015.09-.011.11-.018.22-.018.33a3.1 3.1 0 106.2 0c0-.11-.007-.22-.018-.33 0-.03-.01-.06-.015-.09a1.839 1.839 0 00-.064-.33 3.296 3.296 0 00-.059-.21.867.867 0 00-.036-.1 2.082 2.082 0 00-.08-.2.177.177 0 01-.014-.04A3.1 3.1 0 008 4.91zm6.2-2.29a.8.8 0 00-.8-.8h-1.6a.8.8 0 00-.8.8v1.6a.793.793 0 00.8.79h1.6a.793.793 0 00.8-.79v-1.6zm0 4.09h-1.475a4.9 4.9 0 11-9.45 0H1.8v6.71a.793.793 0 00.8.79h10.8a.793.793 0 00.8-.79V6.71z" fill-rule="evenodd"/></symbol><symbol id="line_graph"><path data-name="LINE GRAPH" d="M30.5 32h-29A1.5 1.5 0 010 30.5v-29A1.5 1.5 0 011.5 0h29A1.5 1.5 0 0132 1.5v29a1.5 1.5 0 01-1.5 1.5zM29 3H3v26h26V3zM5.215 16.24l4-2.5a1.524 1.524 0 011.625.03h.006l6.631 4.42 7.638-5.4a1.501 1.501 0 111.763 2.43l-8.5 6a1.486 1.486 0 01-.878.29 1.505 1.505 0 01-.861-.28L9.982 16.8l-3.135 1.96a1.533 1.533 0 01-.847.26 1.5 1.5 0 01-.785-2.78z" fill-rule="evenodd"/></symbol><symbol id="photography"><path d="M30 24a1.505 1.505 0 01-1 1.41v1.68A1.5 1.5 0 1127.09 29h-1.68a1.493 1.493 0 01-2.818 0h-1.684a1.491 1.491 0 01-2.816 0h-1.684a1.491 1.491 0 01-2.816 0h-1.684a1.491 1.491 0 01-2.816 0H7.408a1.491 1.491 0 01-2.816 0H2.908A1.5 1.5 0 111 27.09v-1.68a1.494 1.494 0 010-2.82v-1.68a1.494 1.494 0 010-2.82v-1.68a1.494 1.494 0 010-2.82v-1.68a1.494 1.494 0 010-2.82V7.41a1.494 1.494 0 010-2.82V2.91A1.5 1.5 0 112.908 1h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684a1.493 1.493 0 012.818 0h1.68A1.5 1.5 0 1129 2.91v1.68a1.494 1.494 0 010 2.82v1.68a1.494 1.494 0 010 2.82v1.68a1.494 1.494 0 010 2.82v1.68a1.494 1.494 0 010 2.82v1.68A1.505 1.505 0 0130 24zM26 4H4v22h22V4zM13 20l7-8.5 4.5 7v6h-19l6-6zm-3-7a3 3 0 113-3 3 3 0 01-3 3z" fill-rule="evenodd"/></symbol><symbol id="picture"><path d="M30 24a1.5 1.5 0 01-1 1.41v1.68A1.5 1.5 0 1127.092 29h-1.684a1.491 1.491 0 01-2.816 0h-1.684a1.491 1.491 0 01-2.816 0h-1.684a1.491 1.491 0 01-2.816 0h-1.684a1.491 1.491 0 01-2.816 0H7.408a1.491 1.491 0 01-2.816 0H2.908A1.5 1.5 0 111 27.09v-1.68a1.494 1.494 0 010-2.82v-1.68a1.494 1.494 0 010-2.82v-1.68a1.494 1.494 0 010-2.82v-1.68a1.494 1.494 0 010-2.82V7.41a1.494 1.494 0 010-2.82V2.91A1.5 1.5 0 112.908 1h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684a1.491 1.491 0 012.816 0h1.684A1.5 1.5 0 1129 2.91v1.68a1.494 1.494 0 010 2.82v1.68a1.494 1.494 0 010 2.82v1.68a1.494 1.494 0 010 2.82v1.68a1.494 1.494 0 010 2.82v1.68A1.5 1.5 0 0130 24zM26 4H4v22h22V4zM13 20l7-8.5 4.5 7v6h-19l6-6zm-3-7a3 3 0 113-3 3 3 0 01-3 3z" fill-rule="evenodd"/></symbol><symbol id="pinterest" viewBox="0 0 511.977 511.977"><path d="M262.948 0C122.628 0 48.004 89.92 48.004 187.968c0 45.472 25.408 102.176 66.08 120.16 6.176 2.784 9.536 1.6 10.912-4.128 1.216-4.352 6.56-25.312 9.152-35.2.8-3.168.384-5.92-2.176-8.896-13.504-15.616-24.224-44.064-24.224-70.752 0-68.384 54.368-134.784 146.88-134.784 80 0 135.968 51.968 135.968 126.304 0 84-44.448 142.112-102.208 142.112-31.968 0-55.776-25.088-48.224-56.128 9.12-36.96 27.008-76.704 27.008-103.36 0-23.904-13.504-43.68-41.088-43.68-32.544 0-58.944 32.224-58.944 75.488 0 27.488 9.728 46.048 9.728 46.048S144.676 371.2 138.692 395.488c-10.112 41.12 1.376 107.712 2.368 113.44.608 3.168 4.16 4.16 6.144 1.568 3.168-4.16 42.08-59.68 52.992-99.808 3.968-14.624 20.256-73.92 20.256-73.92 10.72 19.36 41.664 35.584 74.624 35.584 98.048 0 168.896-86.176 168.896-193.12C463.62 76.704 375.876 0 262.948 0z"/></symbol><symbol id="pointer"><path data-name="PIN 2" d="M9.594 25.61s-9.6-10.7-9.6-16a9.6 9.6 0 0119.2 0c0 5.3-9.6 16-9.6 16zm0-22.4a6.4 6.4 0 106.4 6.4 6.4 6.4 0 00-6.4-6.4zm0 9.6a3.2 3.2 0 113.2-3.2 3.2 3.2 0 01-3.2 3.2z" fill-rule="evenodd"/></symbol><symbol id="search"><path data-name="MAGNIFYING GLASS" d="M17.13 14.795a1.653 1.653 0 01-2.34 2.334l-4.83-4.836a6.627 6.627 0 112.33-2.334l4.84 4.836zM6.61 1.662a4.95 4.95 0 104.95 4.95 4.952 4.952 0 00-4.95-4.95z" fill-rule="evenodd"/></symbol><symbol id="speech" viewBox="0 0 63 61"><path data-name="SPEECH 4" d="M60 36h-2v5a3.018 3.018 0 01-.061.6 2.941 2.941 0 01-.122.393c-.02.057-.03.117-.053.17a2.949 2.949 0 01-.177.327c-.035.06-.061.126-.1.184a3.083 3.083 0 01-.333.4c-.012.013-.021.029-.033.04a2.982 2.982 0 01-2.084.876H55a2.985 2.985 0 01-2.121-.879L45.757 36H18a3 3 0 01-3-3V3a3 3 0 013-3h42a3 3 0 013 3v30a3 3 0 01-3 3zm-15.485 3l6.327 6.326.008-.008A5.968 5.968 0 0055 47v2a3 3 0 01-3 3H20.243l-8.122 8.12A2.993 2.993 0 0110 61h-.037a2.994 2.994 0 01-2.084-.875c-.012-.013-.021-.029-.033-.041a2.926 2.926 0 01-.333-.4c-.039-.057-.065-.122-.1-.183a3.077 3.077 0 01-.177-.325c-.023-.064-.036-.124-.053-.176a2.942 2.942 0 01-.122-.4A3 3 0 017 58v-6H3a3 3 0 01-3-3V15a3 3 0 013-3h9v21a6 6 0 006 6h26.515z" fill-rule="evenodd"/></symbol><symbol id="speech_bubble"><path data-name="SPEECH BUBBLE 2" d="M8.45 12.23a11.325 11.325 0 01-1.68-.25 6.357 6.357 0 01-5.65 2.23c2.44-1.15 2.39-3.07 1.96-3.32A5.609 5.609 0 01.01 6.13c0-3.4 3.73-6.14 8.44-6.14s7.57 2.74 7.57 6.14-2.87 6.1-7.57 6.1zM4.27 4.75a1.5 1.5 0 101.5 1.49 1.5 1.5 0 00-1.5-1.49zm3.75 0a1.5 1.5 0 101.5 1.49 1.5 1.5 0 00-1.5-1.49zm3.75 0a1.5 1.5 0 101.5 1.49 1.5 1.5 0 00-1.5-1.49z" fill-rule="evenodd"/></symbol><symbol id="tumblr"><path d="M10.009 15.15a9.526 9.526 0 01-1.849.67 7.785 7.785 0 01-1.789.2 4.728 4.728 0 01-1.718-.28 4.1 4.1 0 01-1.431-.79 2.892 2.892 0 01-.823-1.09 4.784 4.784 0 01-.228-1.68V6.57H.007V4.3a5.566 5.566 0 001.8-.88 4.389 4.389 0 001.075-1.37A6.3 6.3 0 003.44.01H5.7v3.7h3.682v2.86H5.7v4.1a7.024 7.024 0 00.086 1.73 1.494 1.494 0 00.607.69 2.32 2.32 0 001.209.32 4.31 4.31 0 002.406-.79v2.53z" fill-rule="evenodd"/></symbol><symbol id="twitter"><path d="M10.883.02a3.343 3.343 0 012.594 1.03 5.48 5.48 0 001.682-.57c.136-.08.272-.15.409-.22a3.349 3.349 0 01-1.066 1.54 1.562 1.562 0 01-.36.25v.01A6.37 6.37 0 0016 1.56a5.263 5.263 0 01-1.113 1.28c-.171.14-.342.27-.513.41a9.429 9.429 0 01-.152 2.11 9.172 9.172 0 01-6.43 7.25 9.78 9.78 0 01-4.645.2 12.622 12.622 0 01-1.93-.63 8.359 8.359 0 01-.929-.48L0 11.52a5.155 5.155 0 001.049.04c.323-.05.639-.04.937-.1a7 7 0 001.97-.71 3.459 3.459 0 00.889-.59 2.867 2.867 0 01-.977-.17 3.32 3.32 0 01-2.082-2.1 3.225 3.225 0 001.465-.07 2.313 2.313 0 01-1.073-.43A3.15 3.15 0 01.633 4.58c.112.06.224.11.336.16a3.43 3.43 0 00.689.19.846.846 0 00.448.04H2.09c-.165-.19-.435-.32-.6-.52a3.356 3.356 0 01-.736-2.98 3.825 3.825 0 01.352-.86.015.015 0 00.016.01 2.144 2.144 0 00.3.35 6.58 6.58 0 00.977.93 9.684 9.684 0 004.012 1.94 6.152 6.152 0 001.474.19 3.043 3.043 0 01.016-1.54A3.214 3.214 0 019.759.29a3.949 3.949 0 01.728-.23c.129-.01.262-.03.396-.04z" fill-rule="evenodd"/></symbol><symbol id="users"><path d="M31.95 21.53v.01a1 1 0 01-1 .99h-7.412a1.248 1.248 0 00.972-1.21s0-4.5-3.3-6.14a5.822 5.822 0 00-2.206-.73l.02-1.95a3.672 3.672 0 01-1.011-2.43c-.482.13-.641-.57-.67-1.02-.026-.43-.279-1.78.31-1.66a11.832 11.832 0 01-.165-2.14 3.885 3.885 0 013.861-3.21c2.649.11 3.7 1.69 3.845 3.2a11.926 11.926 0 01-.172 2.15c.589-.12.333 1.23.3 1.66-.025.45-.188 1.15-.669 1.01a3.675 3.675 0 01-1.012 2.43l.018 1.94s.488.28 2.546 1.13 1.412.22 3.088 1.05c2.649 1.31 2.649 4.92 2.649 4.92zm-14.927-6.66c2.262.94 1.552.24 3.395 1.15 2.912 1.44 2.912 5.42 2.912 5.42a1.093 1.093 0 01-1.093 1.09H1.093A1.093 1.093 0 010 21.44s0-3.98 2.912-5.42c1.843-.91 1.133-.17 3.4-1.11a25.01 25.01 0 002.8-1.26l.021-2.15a4.04 4.04 0 01-1.11-2.67c-.53.15-.705-.62-.736-1.11s-.307-1.96.339-1.83a13.029 13.029 0 01-.18-2.36A4.272 4.272 0 0111.69.01c2.911.12 4.065 1.86 4.226 3.52a13.189 13.189 0 01-.189 2.36c.647-.13.366 1.35.334 1.82-.028.5-.207 1.27-.736 1.11a4 4 0 01-1.111 2.67l.019 2.14a30.239 30.239 0 002.79 1.24z" fill-rule="evenodd"/></symbol><symbol id="view"><path d="M19.43 5.65v.03a.02.02 0 01-.01.02v.02a.694.694 0 01-.2.41c-.21.25-.43.48-.65.71a16.519 16.519 0 01-4.13 3.12 11.06 11.06 0 01-3.08 1.12 9.023 9.023 0 01-3.55-.05A13.606 13.606 0 012.3 8.17 15.068 15.068 0 01.19 6.13a.782.782 0 010-1.05c.21-.24.43-.47.65-.7a16.889 16.889 0 014.13-3.12A11.009 11.009 0 018.06.14a8.844 8.844 0 013.55.05 13.446 13.446 0 015.5 2.86 15 15 0 012.11 2.03.755.755 0 01.2.41v.03a.01.01 0 01.01.01v.12zM9.71 1.81a3.645 3.645 0 103.65 3.65 3.643 3.643 0 00-3.65-3.65zm0 5.47a1.825 1.825 0 111.82-1.82 1.82 1.82 0 01-1.82 1.82z" fill-rule="evenodd"/></symbol><symbol id="youtube"><path d="M13.537-.01H2.883C1.525-.01 0 .9 0 2.23v6.62c0 1.33 1.525 2.14 2.883 2.14h10.654a2.223 2.223 0 002.459-2.14V2.23a2.3 2.3 0 00-2.459-2.24zM6.964 8.04L6.932 3l3.508 2.54z" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
+	</div>
 
-	<script src = '../js/libs.min.js'></script>
-	<script src = '../js/main.js'></script>	
+	<script defer src='js/libs.min.js'></script>
+	<script defer src='js/main.js'></script>
 </body>
+
 </html>

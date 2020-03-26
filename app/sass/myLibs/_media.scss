@@ -35,10 +35,10 @@
 		@media (max-width: 319.98px) {@content;} 
 	}
 	@else if $max-width == xs {
-		@media (max-width: 575.98px) {@content;}
+		@media (max-width: 576px) {@content;} //575.98px
 	}
 	@else if $max-width == sm {
-		@media (max-width: 767.98px) {@content;} // каждому значению max-width слудет быть равным предыдущему значению ширины (и минус размер padding-left/right если контейнер имеет значение свойства box-sizing не border-box или padding-box)
+		@media (max-width: 768px) {@content;} //767.98px // каждому значению max-width слудет быть равным предыдущему значению ширины (и минус размер padding-left/right если контейнер имеет значение свойства box-sizing не border-box или padding-box)
 	}
 	@else if $max-width == md {
 		@media (max-width: 991.98px) {@content;}
@@ -53,6 +53,8 @@
 		@media(max-width: $max-width) {@content;}
 	}
 }
+
+
 
 
 // xs max-width: < 575.98px; Экстрамалые девайсы;
