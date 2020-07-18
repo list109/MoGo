@@ -1,5 +1,0 @@
-Myriad Pro: [regular] 
-KaushanScript: [regular]
-Montserrat: [bold , regular]
-Roboto: [regular, light / italic]
-OfficinaSerifCTT: [regular]
