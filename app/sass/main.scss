@@ -998,6 +998,9 @@
             padding-bottom: 50px;
         }
     }
+    @include media-breakpoint-down(xs) {
+        width: 60vw;
+    }
     &_active {
         transform: initial;
     }

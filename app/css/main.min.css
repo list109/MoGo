@@ -1630,6 +1630,10 @@ blockquote {
       padding: 0;
       padding-bottom: 50px; } }
 
+@media (max-width: 576px) {
+  .menu-header {
+    width: 60vw; } }
+
 .menu-header_active {
   transform: initial; }
 
