@@ -2,6 +2,8 @@
 !.gitattributes
 !.gitignore
 
+/*.txt
+
 /node_modules/
 /dist/
 /prod/
