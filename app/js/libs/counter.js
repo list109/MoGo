@@ -1,5 +1,5 @@
-//Counter API uses HTML elements attributes data such as [data-counter] looking for count elements
-//The element as first argument of Counter must includes the elements with [data-counter] attribute noticed above.
+//The Counter API uses the HTML elements attributes data such as [data-counter] looking for count elements
+//The element as first argument of the Counter must includes the elements with [data-counter] attribute noticed above.
 class Counter {
     constructor(element, delay=100) {
         this.elem = element;
