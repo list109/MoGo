@@ -27,7 +27,6 @@ class Slider {
     }
 
     reset() {
-        console.log(this.slider.style.left);
         this.slider.style.left = 0 + 'px';
     }
 };
